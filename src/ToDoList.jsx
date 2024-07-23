@@ -14,7 +14,8 @@ function ToDoList() {
             setNewTask("");
         }
     }
-
+//sử dụng State trước của task là t để update State hiện có là task và đưa setNewTaks về 1 string rỗng để reset lại về ô trống
+//Để ngăn việc người dùng chưa type bất cứ thứ gì vào ô input và vẫn add được task, bọc function addTasks trong 1 diều kiện check ô input, dùng trim để bỏ khoảng trắng và nếu sau đó vẫn không trả về mảng rỗng thì sẽ thỏa điều kiện thêm task mới
     function deleteTask(index) {
         const updatedTasks = tasks.filter((element, i) => i !== index);
         setTasks(updatedTasks);
@@ -54,7 +55,7 @@ function ToDoList() {
                     placeholder="Enter a task"
                     value={newTasks}
                     onChange={handleInputChange}
-                    onKeyDown={handleKeyDown} // Add this line
+                    onKeyDown={handleKeyDown}
                 />
                 <button
                     className="add-button"
